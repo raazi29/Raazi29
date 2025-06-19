@@ -11,28 +11,105 @@
 
 ## 💫 About Me
 
-```python
-class AIEnthusiast:
-    def __init__(self):
-        self.name = "Raazi"
-        self.role = "AI-Powered Developer"
-        self.language_spoken = ["Python", "TypeScript", "JavaScript", "AI Prompts"]
-        self.current_focus = "Building the future with AI"
-        self.specialties = [
-            "🔬 Data Science & Analytics",
-            "🤖 AI/ML Model Development", 
-            "📱 Mobile App Development",
-            "🌐 Full-Stack Web Development",
-            "⚡ Advanced Prompt Engineering",
-            "🎯 Rapid Prototyping with AI Tools"
-        ]
-    
-    def say_hi(self):
-        print("Thanks for dropping by! Let's build something amazing together! 🚀")
+<div align="center">
 
-me = AIEnthusiast()
-me.say_hi()
+<table>
+<tr>
+<td width="50%">
+
+### 🎨 Visual Profile
+
+```ascii
+    🚀 RAAZI.EXE
+    ═══════════════════════════════
+    ┌─ SYSTEM INFO ─────────────────┐
+    │ 👤 Name: Raazi               │
+    │ 🎯 Role: AI-Powered Developer │
+    │ 🌍 Status: Building Future    │
+    │ ⚡ Mode: Innovation Active    │
+    └───────────────────────────────┘
+    
+    🔋 Skills Loading...
+    ████████████████████ 100%
 ```
+
+</td>
+<td width="50%">
+
+### 🛠️ Tech DNA
+
+<div align="center">
+
+```mermaid
+mindmap
+  root((🧠 RAAZI))
+    🔬 Data Science
+      📊 Analytics
+      🤖 ML Models
+      📈 Visualization
+    ⚡ AI Development
+      🎯 Prompt Engineering
+      🔗 LLM Integration
+      🚀 AI Automation
+    💻 Full Stack
+      📱 Mobile Apps
+      🌐 Web Development
+      ☁️ Cloud Solutions
+    🎨 Innovation
+      🔄 Rapid Prototyping
+      💡 Problem Solving
+      🌟 Creative Solutions
+```
+
+</div>
+
+</td>
+</tr>
+</table>
+
+</div>
+
+<div align="center">
+
+### 🎯 My Coding Arsenal
+
+<img src="https://skillicons.dev/icons?i=python,typescript,javascript,react,nodejs,tensorflow,pytorch,nextjs,flutter,firebase&theme=dark" />
+
+### 🚀 Current Mission
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=header&text=Building%20Tomorrow%20with%20AI&fontSize=24&fontColor=white&animation=twinkling" />
+
+</div>
+
+<div align="center">
+
+| 🔥 **Expertise** | 📊 **Proficiency** | 🎨 **Visual** |
+|:---|:---:|:---|
+| **🔬 Data Science & Analytics** | ███████████ 85% | 📊📈📉 |
+| **🤖 AI/ML Development** | ████████████ 95% | 🧠⚡🔮 |
+| **📱 Mobile App Development** | ██████████░░ 85% | 📱💻🚀 |
+| **🌐 Full-Stack Web Dev** | ███████████░ 88% | 🌍⚙️🔧 |
+| **⚡ Prompt Engineering** | ████████████ 98% | 🎯🔥💡 |
+| **🎯 AI-Powered Prototyping** | ████████████ 92% | ⚡🚀✨ |
+
+</div>
+
+<div align="center">
+
+### 💬 Developer.exe Output
+```bash
+$ python developer.py --name="Raazi"
+> Initializing AI-Powered Developer...
+> Loading specialized modules...
+> ✅ Data Science Engine: READY
+> ✅ AI Prompt Processor: READY  
+> ✅ Full-Stack Builder: READY
+> ✅ Innovation Mode: ACTIVATED
+> 
+> 🚀 Ready to build something amazing together!
+> Type 'collaborate' to start...
+```
+
+</div>
 
 ## 🛠️ Tech Arsenal
 
