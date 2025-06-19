@@ -17,7 +17,7 @@
 <tr>
 <td width="50%">
 
-### 🎨 Visual Profile
+### 🎨 Profile
 
 ```ascii
     🚀 RAAZI.EXE
