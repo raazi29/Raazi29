@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="350" viewBox="0 0 900 350" role="img" aria-label="Daily contributions for the last 30 days. 5183 this year, current streak 3 days, longest 35 days.">
+<defs>
+  <filter id="glow" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb000" stop-opacity=".35"/><stop offset="1" stop-color="#ffb000" stop-opacity="0"/></linearGradient>
+  <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffb000" stop-opacity="0"/><stop offset="1" stop-color="#ffb000" stop-opacity=".28"/></linearGradient>
+  <clipPath id="plot"><rect x="70" y="66" width="790" height="166"/></clipPath>
+  <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#ffb000" opacity=".035"/></pattern>
+</defs>
+<style>
+  text { font-family: "JetBrains Mono", "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 11px; letter-spacing: 1px; }
+  .panel { fill: #05070d; stroke: #ffb000; stroke-opacity: .35; }
+  .brk { fill: none; stroke: #ffb000; stroke-width: 2; }
+  .head { fill: #ffb000; font-size: 13px; font-weight: 700; letter-spacing: 2px; }
+  .dim { fill: #b38a3a; opacity: .8; }
+  .red { fill: #ff4b3e; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; }
+  .grid { stroke: #ffb000; stroke-opacity: .14; stroke-dasharray: 2 4; }
+  .grid.v { stroke-opacity: .09; }
+  .area { fill: url(#fill); opacity: 0; animation: show .8s 1.6s forwards; }
+  .line { fill: none; stroke: #ffcf4a; stroke-width: 2.2; stroke-linejoin: round; filter: url(#glow);
+    stroke-dasharray: 1394; stroke-dashoffset: 1394; animation: draw 2.2s ease-out forwards; }
+  .pt { fill: #ffe81f; opacity: 0; animation: show .4s 2s forwards; }
+  .pt.off { fill: #6b5520; }
+  .sweep { animation: sweep 4.5s linear infinite; }
+  .ret { fill: none; stroke: #ff4b3e; stroke-width: 1.6; }
+  .lock { opacity: 0; animation: show .1s 2.3s forwards, blink 1.2s 2.3s steps(2, end) infinite; }
+  .spin { animation: spin 6s linear infinite; }
+  .cell { fill: #ffb000; fill-opacity: .05; stroke: #ffb000; stroke-opacity: .25; }
+  .val { fill: #ffe81f; font-size: 20px; font-weight: 700; letter-spacing: 0; }
+  .live { fill: #ff4b3e; opacity: 1; animation: blink 1s steps(2, end) infinite; }
+  @keyframes draw { to { stroke-dashoffset: 0 } }
+  @keyframes show { to { opacity: 1 } }
+  @keyframes blink { 50% { opacity: .35 } }
+  @keyframes spin { to { transform: rotate(360deg) } }
+  @keyframes sweep { from { transform: translateX(-50px) } to { transform: translateX(860px) } }
+</style>
+<rect class="panel" x=".5" y=".5" width="899" height="349" rx="10"/>
+<rect x=".5" y=".5" width="899" height="349" rx="10" fill="url(#scan)"/>
+<path class="brk" d="M14 30 V14 H30 M870 14 H886 V30 M886 320 V336 H870 M30 336 H14 V320"/>
+<text class="head" x="34" y="38">T-65 TARGETING COMPUTER</text>
+<text class="dim" x="866" y="38" text-anchor="end"><tspan class="live">● LIVE  </tspan>DAILY COMMIT TELEMETRY · LAST 30 DAYS</text>
+<line class="grid" x1="70" y1="232.0" x2="860" y2="232.0"/><text class="dim" x="58" y="236" text-anchor="end">0</text><line class="grid" x1="70" y1="191.5" x2="860" y2="191.5"/><text class="dim" x="58" y="195.5" text-anchor="end">36</text><line class="grid" x1="70" y1="151.0" x2="860" y2="151.0"/><text class="dim" x="58" y="155" text-anchor="end">72</text><line class="grid" x1="70" y1="110.5" x2="860" y2="110.5"/><text class="dim" x="58" y="114.5" text-anchor="end">108</text><line class="grid" x1="70" y1="70.0" x2="860" y2="70.0"/><text class="dim" x="58" y="74" text-anchor="end">144</text><line class="grid v" x1="70.0" y1="70" x2="70.0" y2="232"/><text class="dim" x="70.0" y="252" text-anchor="middle">SEP 19</text><line class="grid v" x1="206.2" y1="70" x2="206.2" y2="232"/><text class="dim" x="206.2" y="252" text-anchor="middle">SEP 24</text><line class="grid v" x1="342.4" y1="70" x2="342.4" y2="232"/><text class="dim" x="342.4" y="252" text-anchor="middle">SEP 29</text><line class="grid v" x1="478.6" y1="70" x2="478.6" y2="232"/><text class="dim" x="478.6" y="252" text-anchor="middle">OCT 04</text><line class="grid v" x1="614.8" y1="70" x2="614.8" y2="232"/><text class="dim" x="614.8" y="252" text-anchor="middle">OCT 09</text><line class="grid v" x1="751.0" y1="70" x2="751.0" y2="232"/><text class="dim" x="751.0" y="252" text-anchor="middle">OCT 14</text><line class="grid v" x1="860.0" y1="70" x2="860.0" y2="232"/><text class="dim" x="860.0" y="252" text-anchor="middle">OCT 18</text>
+<g clip-path="url(#plot)"><rect class="sweep" x="0" y="66" width="120" height="166" fill="url(#sweep)"/></g>
+<path class="area" d="M70.0 218.5 L97.2 227.5 L124.5 197.1 L151.7 221.9 L179.0 207.3 L206.2 232.0 L233.4 232.0 L260.7 232.0 L287.9 198.3 L315.2 206.1 L342.4 198.3 L369.7 211.8 L396.9 156.6 L424.1 202.8 L451.4 232.0 L478.6 206.1 L505.9 189.3 L533.1 144.3 L560.3 221.9 L587.6 200.5 L614.8 199.4 L642.1 151.0 L669.3 166.8 L696.6 144.3 L723.8 230.9 L751.0 232.0 L778.3 232.0 L805.5 221.9 L832.8 70.0 L860.0 229.8 L860 232 L70 232 Z"/>
+<path class="line" d="M70.0 218.5 L97.2 227.5 L124.5 197.1 L151.7 221.9 L179.0 207.3 L206.2 232.0 L233.4 232.0 L260.7 232.0 L287.9 198.3 L315.2 206.1 L342.4 198.3 L369.7 211.8 L396.9 156.6 L424.1 202.8 L451.4 232.0 L478.6 206.1 L505.9 189.3 L533.1 144.3 L560.3 221.9 L587.6 200.5 L614.8 199.4 L642.1 151.0 L669.3 166.8 L696.6 144.3 L723.8 230.9 L751.0 232.0 L778.3 232.0 L805.5 221.9 L832.8 70.0 L860.0 229.8"/>
+<rect class="pt" x="67.5" y="216.0" width="5" height="5"/><rect class="pt" x="94.7" y="225.0" width="5" height="5"/><rect class="pt" x="122.0" y="194.6" width="5" height="5"/><rect class="pt" x="149.2" y="219.4" width="5" height="5"/><rect class="pt" x="176.5" y="204.8" width="5" height="5"/><rect class="pt off" x="203.7" y="229.5" width="5" height="5"/><rect class="pt off" x="230.9" y="229.5" width="5" height="5"/><rect class="pt off" x="258.2" y="229.5" width="5" height="5"/><rect class="pt" x="285.4" y="195.8" width="5" height="5"/><rect class="pt" x="312.7" y="203.6" width="5" height="5"/><rect class="pt" x="339.9" y="195.8" width="5" height="5"/><rect class="pt" x="367.2" y="209.3" width="5" height="5"/><rect class="pt" x="394.4" y="154.1" width="5" height="5"/><rect class="pt" x="421.6" y="200.3" width="5" height="5"/><rect class="pt off" x="448.9" y="229.5" width="5" height="5"/><rect class="pt" x="476.1" y="203.6" width="5" height="5"/><rect class="pt" x="503.4" y="186.8" width="5" height="5"/><rect class="pt" x="530.6" y="141.8" width="5" height="5"/><rect class="pt" x="557.8" y="219.4" width="5" height="5"/><rect class="pt" x="585.1" y="198.0" width="5" height="5"/><rect class="pt" x="612.3" y="196.9" width="5" height="5"/><rect class="pt" x="639.6" y="148.5" width="5" height="5"/><rect class="pt" x="666.8" y="164.3" width="5" height="5"/><rect class="pt" x="694.1" y="141.8" width="5" height="5"/><rect class="pt" x="721.3" y="228.4" width="5" height="5"/><rect class="pt off" x="748.5" y="229.5" width="5" height="5"/><rect class="pt off" x="775.8" y="229.5" width="5" height="5"/><rect class="pt" x="803.0" y="219.4" width="5" height="5"/><rect class="pt" x="830.3" y="67.5" width="5" height="5"/><rect class="pt" x="857.5" y="227.3" width="5" height="5"/>
+<g class="lock">
+  <g transform="translate(832.8 70.0)"><g class="spin">
+    <circle r="13" class="ret"/><circle r="4" class="ret"/>
+    <line class="ret" x1="-22" y1="0" x2="-8" y2="0"/><line class="ret" x1="8" y1="0" x2="22" y2="0"/>
+    <line class="ret" x1="0" y1="-22" x2="0" y2="-8"/><line class="ret" x1="0" y1="8" x2="0" y2="22"/>
+  </g></g>
+  <text class="red" x="802.8" y="74.0" text-anchor="end">TARGET LOCKED · 144 ON OCT 17</text>
+</g>
+<g transform="translate(60.0 266)"><rect class="cell" width="152.0" height="54" rx="3"/>
+<text class="val" x="76.0" y="27" text-anchor="middle">5,183</text>
+<text class="dim" x="76.0" y="44" text-anchor="middle">YEAR TOTAL</text></g><g transform="translate(222.0 266)"><rect class="cell" width="152.0" height="54" rx="3"/>
+<text class="val" x="76.0" y="27" text-anchor="middle">3d</text>
+<text class="dim" x="76.0" y="44" text-anchor="middle">CURRENT STREAK</text></g><g transform="translate(384.0 266)"><rect class="cell" width="152.0" height="54" rx="3"/>
+<text class="val" x="76.0" y="27" text-anchor="middle">35d</text>
+<text class="dim" x="76.0" y="44" text-anchor="middle">LONGEST STREAK</text></g><g transform="translate(546.0 266)"><rect class="cell" width="152.0" height="54" rx="3"/>
+<text class="val" x="76.0" y="27" text-anchor="middle">144</text>
+<text class="dim" x="76.0" y="44" text-anchor="middle">BEST DAY</text></g><g transform="translate(708.0 266)"><rect class="cell" width="152.0" height="54" rx="3"/>
+<text class="val" x="76.0" y="27" text-anchor="middle">28.0</text>
+<text class="dim" x="76.0" y="44" text-anchor="middle">30-DAY AVG</text></g>
+<text class="dim" x="450" y="336" text-anchor="middle">SYNCED 2026-10-17 20:11 UTC · STAY ON TARGET</text>
+</svg>
