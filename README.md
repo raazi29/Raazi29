@@ -13,12 +13,9 @@
 </p>
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/raazi29/Raazi29/output/snake-dark.svg" />
-    <img src="https://raw.githubusercontent.com/raazi29/Raazi29/output/snake.svg" width="100%" alt="A probe droid patrolling the contribution grid" />
-  </picture>
+  <img src="https://raw.githubusercontent.com/raazi29/Raazi29/output/grid.svg" width="100%" alt="Galactic contribution map: the last 52 weeks of contributions" />
 </p>
 
 <img src="assets/saber.svg" width="100%" alt="" />
 
-<p align="center"><sub>Telemetry refreshes daily from the holonet. May the source be with you.</sub></p>
+<p align="center"><sub>Telemetry refreshes daily. May the source be with you.</sub></p>

@@ -163,6 +163,72 @@ ${statBlock}
 </svg>
 `;
 
+// ---------- galactic map: the year's contribution grid ----------
+const nonzero = days.map((d) => d.contributionCount).filter((c) => c > 0).sort((a, b) => a - b);
+const q = (p) => nonzero[Math.min(nonzero.length - 1, Math.floor(p * nonzero.length))] ?? 1;
+const cuts = [q(0.25), q(0.5), q(0.75)];
+const level = (c) => (c === 0 ? 0 : c <= cuts[0] ? 1 : c <= cuts[1] ? 2 : c <= cuts[2] ? 3 : 4);
+
+const GW = 900, CELL = 12, STEP = 15, GX = 70, GY = 64;
+const GH = GY + 7 * STEP + 58;
+let cells = "", months = "", lastMonth = -1, lastLabel = -9;
+cal.weeks.forEach((w, wi) => {
+  const x = GX + wi * STEP;
+  const m = +w.contributionDays[0].date.slice(5, 7) - 1;
+  if (m !== lastMonth && wi - lastLabel >= 3 && wi < cal.weeks.length - 2) {
+    lastLabel = wi;
+    months += `<text class="dim" x="${x}" y="${GY - 10}">${MON[m]}</text>`;
+    lastMonth = m;
+  }
+  for (const d of w.contributionDays) {
+    const dow = new Date(`${d.date}T00:00:00Z`).getUTCDay();
+    cells += `<rect class="c${level(d.contributionCount)}" x="${x}" y="${GY + dow * STEP}" width="${CELL}" height="${CELL}" rx="2"><title>${d.date}: ${d.contributionCount}</title></rect>`;
+  }
+});
+const bw = cal.weeks.findIndex((w) => w.contributionDays.some((d) => d.date === best.date));
+const bdow = new Date(`${best.date}T00:00:00Z`).getUTCDay();
+const bx = GX + bw * STEP + CELL / 2, by = GY + bdow * STEP + CELL / 2;
+const gridW = cal.weeks.length * STEP;
+const legend = [0, 1, 2, 3, 4].map((l, i) => `<rect class="c${l}" x="${GW - 34 - 5 * 17 + i * 17 - 40}" y="${GH - 30}" width="${CELL}" height="${CELL}" rx="2"/>`).join("");
+
+const mapSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${GW}" height="${GH}" viewBox="0 0 ${GW} ${GH}" role="img" aria-label="Contribution map for the last year: ${cal.totalContributions} contributions, best day ${best.contributionCount} on ${best.date}.">
+<defs>
+  <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffb000" stop-opacity="0"/><stop offset="1" stop-color="#ffb000" stop-opacity=".22"/></linearGradient>
+  <clipPath id="map"><rect x="${GX - 2}" y="${GY - 2}" width="${gridW + 2}" height="${7 * STEP + 2}"/></clipPath>
+  <pattern id="scan2" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#ffb000" opacity=".035"/></pattern>
+</defs>
+<style>
+  text { font-family: "JetBrains Mono", "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 11px; letter-spacing: 1px; }
+  .panel { fill: #05070d; stroke: #ffb000; stroke-opacity: .35; }
+  .brk { fill: none; stroke: #ffb000; stroke-width: 2; }
+  .head { fill: #ffb000; font-size: 13px; font-weight: 700; letter-spacing: 2px; }
+  .dim { fill: #b38a3a; opacity: .8; }
+  .c0 { fill: #141a24; } .c1 { fill: #4a3a12; } .c2 { fill: #8a6414; } .c3 { fill: #d49a16; } .c4 { fill: #ffe066; }
+  .beam { animation: beam 7s linear infinite; }
+  .ret { fill: none; stroke: #ff4b3e; stroke-width: 1.6; }
+  .lock { animation: blink 1.2s steps(2, end) infinite; }
+  @keyframes beam { from { transform: translateX(${GX - 140}px) } to { transform: translateX(${GX + gridW}px) } }
+  @keyframes blink { 50% { opacity: .35 } }
+  @media (prefers-reduced-motion: reduce) { .beam, .lock { animation: none } .beam { display: none } }
+</style>
+<rect class="panel" x=".5" y=".5" width="${GW - 1}" height="${GH - 1}" rx="10"/>
+<rect x=".5" y=".5" width="${GW - 1}" height="${GH - 1}" rx="10" fill="url(#scan2)"/>
+<path class="brk" d="M14 30 V14 H30 M${GW - 30} 14 H${GW - 14} V30 M${GW - 14} ${GH - 30} V${GH - 14} H${GW - 30} M30 ${GH - 14} H14 V${GH - 30}"/>
+<text class="head" x="34" y="38">GALACTIC CONTRIBUTION MAP</text>
+<text class="dim" x="${GW - 34}" y="38" text-anchor="end">LAST 52 WEEKS · ${cal.totalContributions.toLocaleString("en-US")} SIGNALS</text>
+${months}
+<text class="dim" x="${GX - 10}" y="${GY + 1 * STEP + 10}" text-anchor="end">MON</text>
+<text class="dim" x="${GX - 10}" y="${GY + 3 * STEP + 10}" text-anchor="end">WED</text>
+<text class="dim" x="${GX - 10}" y="${GY + 5 * STEP + 10}" text-anchor="end">FRI</text>
+${cells}
+<g clip-path="url(#map)"><rect class="beam" x="0" y="${GY - 2}" width="140" height="${7 * STEP + 2}" fill="url(#beam)"/></g>
+<g class="lock"><circle class="ret" cx="${bx}" cy="${by}" r="11"/><line class="ret" x1="${bx - 17}" y1="${by}" x2="${bx - 12}" y2="${by}"/><line class="ret" x1="${bx + 12}" y1="${by}" x2="${bx + 17}" y2="${by}"/></g>
+<text class="dim" x="${GX}" y="${GH - 20}"><tspan fill="#ff4b3e">◎</tspan> BEST DAY ${best.contributionCount} ON ${short(best.date)}</text>
+<text class="dim" x="${GW - 34 - 5 * 17 - 48}" y="${GH - 20}" text-anchor="end">QUIET</text>${legend}<text class="dim" x="${GW - 34 - 40 + 6}" y="${GH - 20}">HOT</text>
+</svg>
+`;
+
 mkdirSync("dist", { recursive: true });
 writeFileSync("dist/targeting.svg", svg);
-console.log(`targeting.svg: ${cal.totalContributions} this year, streak ${current}/${longest}, peak ${peak.contributionCount} on ${peak.date}`);
+writeFileSync("dist/grid.svg", mapSvg);
+console.log(`targeting.svg + grid.svg: ${cal.totalContributions} this year, streak ${current}/${longest}, peak ${peak.contributionCount} on ${peak.date}`);
